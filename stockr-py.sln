@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "stockr-py", "stockr-py\stockr-py.pyproj", "{025BD6B7-BC6E-44A7-8FA2-5843CC6EBF85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{025BD6B7-BC6E-44A7-8FA2-5843CC6EBF85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{025BD6B7-BC6E-44A7-8FA2-5843CC6EBF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26D49987-89CF-4902-936F-23E4F8627436}
+	EndGlobalSection
+EndGlobal
