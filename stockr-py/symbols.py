@@ -1,14 +1,18 @@
 import _conf as cf
 import _secrets as sec
-import log
+
 import urllib.request, json
 import pyodbc 
+
+import db.log as log
 
 def symbols_load():
 
     counter = 0
     response = urllib.request.urlopen(cf.url_symbols_all)
     symbols = json.loads(response.read())
+
+    log.logmsg("sym ct - " + str(len(symbols)))
 
     conn = pyodbc.connect(sec.db_conn)
     cursor = conn.cursor()
@@ -19,14 +23,14 @@ def symbols_load():
     for s in symbols:
 
         insert = "('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %s)" %(
-            s["symbol"],
-            s["exchange"],
-            s["name"].replace("'", "''"),
-            s["date"],
-            s["type"],
-            s["iexId"],
-            s["region"],
-            s["currency"],
+            s.setdefault('symbol', ''),
+            s.setdefault('exchange', ''),
+            s.setdefault('name', '').replace("'", "''"),
+            s.setdefault('date', ''),
+            s.setdefault('type', ''),
+            s.setdefault('iexId', ''),
+            s.setdefault('region', ''),
+            s.setdefault('currency', ''),
             1 if s["isEnabled"] else 0)
 
         insert_vals.append(insert)
@@ -53,3 +57,4 @@ def symbols_load():
     cursor.commit()
     conn.close()
 
+symbols_load()
